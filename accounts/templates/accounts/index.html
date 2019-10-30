@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+Accounts
+{% endblock title %}
+{% block css %}
+<style type="text/css">
+    .label {
+        cursor: default !important;
+    }
+    .label-nohover:hover {
+        /* offset semantic style */
+        background-color: #e8e8e8 !important;
+        color: rgba(0,0,0,.6) !important;
+    }
+    form input, form .message, from a, form button, form footer {
+        margin: 4px !important;
+    }
+</style>
+{% endblock css %}
+{% block content %}
+<div class="middle-x middle-y">
+    <form class="ui form panel shadow" method="POST" action={% url 'accounts:login' %} style="padding: 16px;margin: 8px;">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="username" placeholder="Email" />
+            <input type="password" name="password" placeholder="Password" />    
+        </div>
+        {% include 'messages.html' %}
+        <button class="ui inverted green button" type="submit">Login</button>
+        <a class="ui disabled button" disabled>Register (currently not open)</a>
+        <footer style="margin:10px 0 0 0;">
+            <a class="ui label label-nohover">Version: v0.0.0</a>
+            <a class="ui label label-nohover">Currently not available for registration</a>
+        </footer>
+    </form>
+</div>
+{% endblock content %}}

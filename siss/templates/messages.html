@@ -1,0 +1,25 @@
+{% load utils %}
+{% with msgs=messages|success_msgs %}
+{% if msgs %}
+<div class="ui positive message">
+    <i class="close icon"></i>
+    <ul class="list scroll">
+        {% for msg in msgs %}
+        <li>{{ msg }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endwith %}
+{% with msgs=messages|error_msgs %}
+{% if msgs %}
+<div class="ui negative message">
+    <i class="close icon"></i>
+    <ul class="list scroll">
+        {% for msg in msgs %}
+        <li>{{ msg }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endwith %}
