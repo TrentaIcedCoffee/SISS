@@ -2,22 +2,22 @@ version: 0.0
 os: linux
 files:
  - source: /apps/
-   destination: /home/ubuntu/apps
+   destination: /home/ec2-user/apps
  - source: /files/
-   destination: /home/ubuntu/files
+   destination: /home/ec2-user/files
  - source: /requirements/
-   destination: /home/ubuntu/requirements
+   destination: /home/ec2-user/requirements
  - source: /supervisord.conf
-   destination: /home/ubuntu
+   destination: /home/ec2-user
 
 permissions:
-  - object: /home/ubuntu/apps/manage.py
-    owner: ubuntu
+  - object: /home/ec2-user/apps/manage.py
+    owner: root
     mode: 644
     type:
       - file
-  - object: /home/ubuntu/supervisord.conf
-    owner: ubuntu
+  - object: /home/ec2-user/supervisord.conf
+    owner: root
     mode: 644
     type:
       - file
