@@ -1,4 +1,4 @@
-cd /home/ec2-user
+cd /home/ubuntu
 source environment/bin/activate
 python apps/manage.py collectstatic --noinput
-/usr/local/bin/supervisord -c /home/ec2-user/supervisord.conf
+/usr/local/bin/supervisord -c /home/ubuntu/supervisord.conf
