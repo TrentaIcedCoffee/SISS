@@ -12,12 +12,12 @@ files:
 
 permissions:
   - object: /home/ec2-user/apps/manage.py
-    owner: ec2-user
+    owner: ubuntu
     mode: 644
     type:
       - file
   - object: /home/ec2-user/supervisord.conf
-    owner: ec2-user
+    owner: ubuntu
     mode: 644
     type:
       - file
