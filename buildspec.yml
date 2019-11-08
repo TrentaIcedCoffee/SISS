@@ -1,0 +1,22 @@
+version: 0.0
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+    commands:
+      - pip install -r requirements/prod.txt
+
+  pre_build:
+    commands:
+      - python apps/manage.py test
+
+artifacts:
+  type: zip
+  files:
+    - 'apps/**/*'
+    - 'files/sample.xlsx'
+    - 'requirements/**/*'
+    - 'scripts/**/*'
+    - 'appspec.yml'
+    - 'supervisord.conf'

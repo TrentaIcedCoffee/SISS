@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    Ingest
+{% endblock title %}
+{% block js %}
+<script>
+    /* global $, ajaxDownload */
+    $(function() {
+        $('#download-sample').click(function() {
+            ajaxDownload('/files/sample/', 'sample.xlsx');
+        });
+    });
+</script>
+{% endblock js %}
+{% block css %}
+<style>
+    form button, form input {
+        margin: 2px 2px 2px 2px !important;
+    }
+    .message {
+        margin: 5px !important;
+    }
+</style>
+{% endblock css %}
+{% block content %}
+{% include 'messages.html' %}
+<div class="shadow middle-x" style="padding: 8px 8px 8px 8px;margin-top:20px;">
+    <form class="ui form" method="POST" action="{% url 'ingest:index' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="excel" />
+        <input class="ui green button" type="submit" value="Upload Data" />
+    </form>
+    <button id="download-sample" class="ui blue button">Download Sample Data</button>
+</div>
+{% endblock content %}}

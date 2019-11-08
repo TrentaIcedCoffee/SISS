@@ -1,0 +1,15 @@
+<div class="ui secondary menu shadow" style="margin: 6px 10px 0px 10px;border-radius: 8px;padding: 4px 4px 4px 4px;">
+    {% if user.is_authenticated %}
+    <a class="item solid {% if '/ingest/' == request.path %}active{% endif %}" href="{% url 'ingest:index' %}">Ingest Data</a>
+    <a class="item solid {% if '/match/' == request.path %}active{% endif %}" href="{% url 'match:index' %}">Match Data</a>    
+    {% else %}
+    <p style="margin: 0px 0px 0px 200px;padding: 4px 8px 4px 8px;color: rgba(0,0,0,0.7);font-size: 20px;">SISS Project</p>
+    {% endif %}
+    <div class="right menu">
+        {% if user.is_authenticated %}
+        <a class="item solid" href="{% url 'accounts:logout' %}">Logout</a>
+        {% else %}
+        <a class="item solid" href="{% url 'accounts:login' %}">Login</a>
+        {% endif %}
+    </div>
+</div>
