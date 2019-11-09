@@ -1,23 +1,15 @@
 version: 0.0
 os: linux
 files:
- - source: /apps/
-   destination: /home/ubuntu/siss/apps
- - source: /files/
-   destination: /home/ubuntu/siss/files
- - source: /requirements/
-   destination: /home/ubuntu/siss/requirements
- - source: /supervisord.conf
-   destination: /home/ubuntu/siss/
-
+  - source: /
+    destination: /home/ubuntu/siss
+    
 permissions:
   - object: /home/ubuntu/siss
-    pattern: "**"
     owner: ubuntu
     group: ubuntu
     mode: 777
-    
-      
+
 hooks:
   AfterInstall:
     - location: scripts/install_dependencies
