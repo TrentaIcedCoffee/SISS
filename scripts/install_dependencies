@@ -4,7 +4,7 @@ apt-get update
 apt-get install python3 python3-pip -y
 pip3 install virtualenv supervisor
 
-cd /home/ubuntu
+cd /home/ec2-user
 virtualenv environment -p python3
 source environment/bin/activate
 pip install -r requirements/prod.txt
