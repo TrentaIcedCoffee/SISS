@@ -11,16 +11,12 @@ files:
    destination: /home/ec2-user
 
 permissions:
-  - object: /home/ec2-user/apps/manage.py
-    owner: root
+  - object: /home/ec2-user/
+    owner: ubuntu
     mode: 644
     type:
-      - file
-  - object: /home/ec2-user/supervisord.conf
-    owner: root
-    mode: 644
-    type:
-      - file
+      - directory
+      
 hooks:
   AfterInstall:
     - location: scripts/install_dependencies
@@ -28,7 +24,7 @@ hooks:
       runas: root
     - location: scripts/start_server
       timeout: 300
-      runas: root
+      runas: ubuntu
 
   ApplicationStop:
     - location: scripts/stop_server
