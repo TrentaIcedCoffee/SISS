@@ -1,25 +1,20 @@
 version: 0.0
 os: linux
 files:
- - source: /apps/
-   destination: /home/ec2-user/apps
- - source: /files/
-   destination: /home/ec2-user/files
- - source: /requirements/
-   destination: /home/ec2-user/requirements
- - source: /supervisord.conf
+ - source: /
    destination: /home/ec2-user
 
 permissions:
-  - object: /home/ec2-user/
+  - object: /home/ec2-user
     owner: ubuntu
+    group: ubuntu
     mode: 644
       
 hooks:
   AfterInstall:
     - location: scripts/install_dependencies
       timeout: 300
-      runas: root
+      runas: ubuntu
     - location: scripts/start_server
       timeout: 300
       runas: ubuntu
@@ -27,4 +22,4 @@ hooks:
   ApplicationStop:
     - location: scripts/stop_server
       timeout: 300
-      runas: root
+      runas: ubuntu
