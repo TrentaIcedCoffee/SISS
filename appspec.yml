@@ -13,7 +13,8 @@ files:
 permissions:
   - object: /home/ubuntu/siss/
     owner: ubuntu
-    mode: 644
+    group: ubuntu
+    mode: 777
     type:
       - directory
       
