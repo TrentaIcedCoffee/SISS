@@ -13,13 +13,13 @@ files:
 permissions:
   - object: /home/ec2-user/
     owner: ubuntu
-    mode: 777
+    mode: 644
       
 hooks:
   AfterInstall:
     - location: scripts/install_dependencies
       timeout: 300
-      runas: ubuntu
+      runas: root
     - location: scripts/start_server
       timeout: 300
       runas: ubuntu
@@ -27,4 +27,4 @@ hooks:
   ApplicationStop:
     - location: scripts/stop_server
       timeout: 300
-      runas: ubuntu
+      runas: root
