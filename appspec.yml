@@ -2,10 +2,10 @@ version: 0.0
 os: linux
 files:
  - source: /
-   destination: /home/ec2-user
+   destination: /home/ubuntu/siss
 
 permissions:
-  - object: /home/ec2-user
+  - object: /home/ubuntu/siss
     owner: root
     group: root
     mode: 644
