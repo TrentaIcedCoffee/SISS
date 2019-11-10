@@ -1,14 +1,10 @@
 import os
+import dotenv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_DIR = os.path.dirname(BASE_DIR)
 
-try:
-    import dotenv
-    dotenv.load_dotenv(os.path.join(OUT_DIR, '.env'))
-except ModuleNotFoundError:
-    pass
-
+dotenv.load_dotenv('/home/ubuntu/.env')
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = os.environ.get('DEBUG', '') == 'True'
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
