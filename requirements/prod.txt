@@ -2,4 +2,5 @@ Django==2.0.13
 djangorestframework==3.10.3
 pytz==2019.2
 xlrd==1.2.0
+python-dotenv==0.10.3
 gunicorn==19.7.1
