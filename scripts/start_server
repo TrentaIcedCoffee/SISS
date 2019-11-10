@@ -1,4 +1,5 @@
 cd /home/ubuntu/siss
 source environment/bin/activate
 python apps/manage.py collectstatic --noinput
+python apps/manage.py migrate
 /usr/local/bin/supervisord -c /home/ubuntu/siss/supervisord.conf
