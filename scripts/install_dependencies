@@ -5,6 +5,6 @@ apt-get install python3 python3-pip -y
 pip3 install virtualenv supervisor
 
 cd /home/ubuntu/siss
-virtualenv environment
+virtualenv environment -p python3.6
 source environment/bin/activate
 pip install -r requirements/prod.txt
