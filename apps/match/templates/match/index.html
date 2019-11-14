@@ -31,11 +31,11 @@ Match
             var ele = [];
             for (var key in data) {
                 ele.push(`
-                    <span><b>${key}:</b> ${data[key]}</span>
+                    <div><b>${key}:</b> ${data[key]}</div>
                 `)
             }
             ele = `
-                ${ele.join('<br />')}
+                ${ele.join('')}${ele.join('')}
             `;
             $where.html(ele);
         }
@@ -166,9 +166,6 @@ Match
             font-size: 12px;
         }
         #sheet {
-            height: 500px;
-        }
-        #details {
             height: 400px;
         }
         #sheet .column {
@@ -201,11 +198,15 @@ Match
         #sheet .column.control .ele:not(:first-child) {
             margin-top: 5px;            
         }
-        #detail-se, #detail-ke {
-            max-height: 400px;
-            overflow-y: auto;
+        #details {
+            height: 150px;
+            margin-top: 20px;
         }
-        
+        #details > div {
+            max-height: 150px;
+            overflow-y: auto;
+            overflow-wrap: break-word;
+        }
         .two-buttons button, .two-buttons button i, .two-buttons div {
             margin: 1px !important;
             padding: 1px !important;
@@ -274,8 +275,10 @@ Match
     </div>
 </div>
 <div id="details" class="ui grid">
-    <div id="detail-ke" class="seven wide column"></div>
+    <div id="detail-ke" class="seven wide column">
+    </div>
     <div class="two wide column"></div>
-    <div id="detail-se" class="seven wide column"></div>
+    <div id="detail-se" class="seven wide column">
+    </div>
 </div>
 {% endblock content %}}
