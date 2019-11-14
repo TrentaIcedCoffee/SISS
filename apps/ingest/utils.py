@@ -25,7 +25,7 @@ def date_of(s):
     
 def upload_file(request, f):
     name = datetime.datetime.now().strftime('%m%d%H%M') + '.xlsx'
-    path = os.path.join(settings.FILE_ROOT, name)
+    path = os.path.join(settings.FILES_ROOT, name)
     with open(path, 'wb+') as outfile:
         for chunk in f.chunks():
             outfile.write(chunk)

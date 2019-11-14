@@ -1,9 +1,12 @@
+TODO
 .~c9*
 .env
 .venv/
 venv/
+.environment/
+environment/
 db.sqlite3
 __pycache__/
 static/
-files_dir/*
-!files_dir/sample.xlsx
+files/*
+!files/sample.xlsx

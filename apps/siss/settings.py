@@ -4,7 +4,15 @@ import dotenv
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_DIR = os.path.dirname(BASE_DIR)
 
-dotenv.load_dotenv('/home/ubuntu/.env')
+prod_env_root, dev_env_root = '/home/ubuntu/.env', os.path.join(OUT_DIR, '.env')
+if os.path.exists(prod_env_root) and os.path.isfile(prod_env_root):
+    dotenv.load_dotenv(prod_env_root)
+elif os.path.exists(dev_env_root) and os.path.isfile(dev_env_root):
+    dotenv.load_dotenv(dev_env_root)
+else:
+    from django.core.exceptions import ImproperlyConfigured
+    raise ImproperlyConfigured('missing env variables')
+    
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = os.environ.get('DEBUG', '') == 'True'
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
