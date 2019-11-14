@@ -10,9 +10,8 @@ if os.path.exists(prod_env_root) and os.path.isfile(prod_env_root):
 elif os.path.exists(dev_env_root) and os.path.isfile(dev_env_root):
     dotenv.load_dotenv(dev_env_root)
 else:
-    from django.core.exceptions import ImproperlyConfigured
-    raise ImproperlyConfigured('missing env variables')
-    
+    pass # use ingested env variables
+        
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = os.environ.get('DEBUG', '') == 'True'
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
