@@ -1,7 +1,6 @@
 from typing import *
 from utils.messages import *
 from utils.errors import *
-from django.utils import timezone
 from django.conf import settings
 
 from .forms import KualiForm, SunapsisForm

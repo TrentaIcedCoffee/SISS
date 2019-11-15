@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'accounts',
     'ingest',
     'match',
+    'logger',
 ]
 
 MIDDLEWARE = [
@@ -46,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'logger.middlewares.logger_middleware',
 ]
 
 ROOT_URLCONF = 'siss.urls'
