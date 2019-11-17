@@ -25,3 +25,9 @@ def data_of(request):
         'POST': dict(request.POST.copy())
     }
     return data
+    
+def post_captcha(secret, ip, g_recaptcha_response):
+    import requests
+    URL = 'https://www.google.com/recaptcha/api/siteverify'
+    url = f'{URL}?secret={secret}&response={g_recaptcha_response}&remoteip={ip}'
+    return requests.get(url).json()

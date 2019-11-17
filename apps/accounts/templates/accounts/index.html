@@ -12,7 +12,7 @@ Accounts
         background-color: #e8e8e8 !important;
         color: rgba(0,0,0,.6) !important;
     }
-    form input, form .message, from a, form button, form footer {
+    #login-fields input, from .message, form a, form button {
         margin: 4px !important;
     }
 </style>
@@ -21,14 +21,15 @@ Accounts
 <div class="middle-x middle-y">
     <form class="ui form panel shadow" method="POST" action={% url 'accounts:login' %} style="padding: 16px;margin: 8px;">
         {% csrf_token %}
-        <div>
+        <div id="login-fields">
             <input type="text" name="username" placeholder="Email" />
-            <input type="password" name="password" placeholder="Password" />    
+            <input type="password" name="password" placeholder="Password" />
+            <div class="g-recaptcha" style="margin-left: 4px;" data-sitekey="{{ CAPTCHA_SITE_KEY }}"></div>
         </div>
         {% include 'messages.html' %}
         <button class="ui inverted green button" type="submit">Login</button>
         <a class="ui disabled button" disabled>Register (currently not open)</a>
-        <footer style="margin:10px 0 0 0;">
+        <footer>
             <a class="ui label label-nohover">Version: v0.0.0</a>
             <a class="ui label label-nohover">Currently not available for registration</a>
         </footer>

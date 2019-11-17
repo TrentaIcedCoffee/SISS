@@ -23,6 +23,9 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 # CSRF_COOKIE_SECURE = True
 # X_FRAME_OPTIONS = 'DENY'
 
+CAPTCHA_SITE_KEY = os.environ.get('CAPTCHA_SITE_KEY', '')
+CAPTCHA_SECRET_KEY = os.environ.get('CAPTCHA_SECRET_KEY', '')
+
 # Application definition
 
 INSTALLED_APPS = [

@@ -10,6 +10,7 @@ def error_of(status_code, error_name):
 
 bad_request = error_of(400, 'Bad Request (400)')
 not_found = error_of(404, 'Object Not Found (404)')
+forbidden = error_of(403, 'Forbidden (403)')
 method_not_allowed = error_of(405, 'Method Not Allowed (405)')
 server_error = error_of(500, 'Server Error (500)')
 
