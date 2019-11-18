@@ -1,9 +1,15 @@
 #!/bin/bash
+
+# python3.6 from ppa, works WITH python3.5
 add-apt-repository ppa:jonathonf/python-3.6 -y
 apt-get update
-apt-get install python3.6 ruby wget -y
+apt-get install python3.6 -y 
+
+# codedeploy-agent
+apt-get install ruby wget -y
 cd /home/ubuntu
 wget https://aws-codedeploy-us-east-2.s3.us-east-2.amazonaws.com/latest/install
 chmod +x ./install
 ./install auto
+rm ./install
 service codedeploy-agent start
