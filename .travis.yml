@@ -8,3 +8,7 @@ install:
 
 script:
     - python apps/manage.py test
+    
+branches:
+    only:
+      - build
