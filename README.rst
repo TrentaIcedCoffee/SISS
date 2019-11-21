@@ -1,7 +1,9 @@
 SISS Web Service
 ===================
 .. image:: https://travis-ci.com/TrentaIcedCoffee/SISS.svg?branch=master
-    :target: https://travis-ci.com/TrentaIcedCoffee/SISS/  
+    :target: https://travis-ci.com/TrentaIcedCoffee/SISS/
+.. image:: https://coveralls.io/repos/github/TrentaIcedCoffee/SISS/badge.svg?branch=master
+    :target: https://coveralls.io/github/TrentaIcedCoffee/SISS?branch=master
 
 SISS web services including transaction matching, ...
 
