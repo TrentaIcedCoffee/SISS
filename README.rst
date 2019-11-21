@@ -1,6 +1,6 @@
 SISS Web Service
 ===================
-.. image:: https://travis-ci.com/TrentaIcedCoffee/SISS.svg?branch=build
+.. image:: https://travis-ci.com/TrentaIcedCoffee/SISS.svg?branch=master
     :target: https://travis-ci.com/TrentaIcedCoffee/SISS/  
 
 SISS web services including transaction matching, ...
