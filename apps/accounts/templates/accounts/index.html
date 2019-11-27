@@ -12,22 +12,35 @@ Accounts
         background-color: #e8e8e8 !important;
         color: rgba(0,0,0,.6) !important;
     }
-    #login-fields input, from .message, form a, form button {
+    #login-fields input, .g-recaptcha, .message, form a, form button {
         margin: 4px !important;
     }
 </style>
 {% endblock css %}
+{% block js %}
+<script>
+    /* global $ */
+    $(document).ready(function() {
+        $(document).on('keyup', function(event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                $('#btn-submit').click();
+            }
+        });
+    });
+</script>
+{% endblock js %}
 {% block content %}
 <div class="middle-x middle-y">
     <form class="ui form panel shadow" method="POST" action={% url 'accounts:login' %} style="padding: 16px;margin: 8px;">
         {% csrf_token %}
         <div id="login-fields">
-            <input type="text" name="username" placeholder="Email" />
-            <input type="password" name="password" placeholder="Password" />
-            <div class="g-recaptcha" style="margin-left: 4px;" data-sitekey="{{ CAPTCHA_SITE_KEY }}"></div>
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password" required />
+            <div class="g-recaptcha" data-sitekey="{{ CAPTCHA_SITE_KEY }}"></div>
         </div>
         {% include 'messages.html' %}
-        <button class="ui inverted green button" type="submit">Login</button>
+        <button id="btn-submit" class="ui inverted green button" type="submit">Login</button>
         <a class="ui disabled button" disabled>Register (currently not open)</a>
         <footer>
             <a class="ui label label-nohover">Version: v0.0.0</a>

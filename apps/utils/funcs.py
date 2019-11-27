@@ -1,6 +1,20 @@
+from typing import *
+
 from django.shortcuts import get_object_or_404
 
-posted_data = lambda request, keys: {key: request.POST.get(key, None) for key in keys}
+def posted_data(request, lst_key_opname):
+    ''' extract posted data from request with error message as single string
+        request, [('key_hit', 'username'), ('key_miss', 'birthdate'), 'another_key_miss'] ->
+        ('missing birthdate, another_key_miss', {'key_hit': 'value_hit'})
+    '''
+    missings, data = [], {}
+    for e in lst_key_opname:
+        key, name = e if type(e) == tuple else (e, e)
+        if not request.POST.get(key, ''):
+            missings.append(name)
+        else:
+            data[key] = request.POST[key]
+    return (f'missing {", ".join(missings)}' if missings else '', data)
 
 def ip_of(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')

@@ -8,7 +8,9 @@ from ingest.models import *
 @allowed_methods(['POST'])
 def index(request):
     if request.method == 'POST':
-        data = posted_data(request, ['ke_id', 'se_id'])
+        errors, data = posted_data(request, ['ke_id', 'se_id'])
+        if errors:
+            return bad_request({'error-msg': errors})
         ke, se = get_object_or_404(KualiEntry, id=data['ke_id']), \
                  get_object_or_404(SunapsisEntry, id=data['se_id'])
         if ke.ref_sunapsis is not None or se.ref_kuali is not None:

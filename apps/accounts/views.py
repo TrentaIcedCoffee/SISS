@@ -14,13 +14,19 @@ def login(request):
     if request.method == 'GET':
         return render(request, 'accounts/index.html', {'CAPTCHA_SITE_KEY': settings.CAPTCHA_SITE_KEY})
     elif request.method == 'POST':
-        data = posted_data(request, ['username', 'password', 'g-recaptcha-response'])
-        if not data['g-recaptcha-response'] or \
-           not post_captcha(settings.CAPTCHA_SECRET_KEY, ip_of(request), data['g-recaptcha-response']):
-            return forbidden()
-        user = authenticate(request, username=data['username'], password=data['password'])
+        errors, data = posted_data(
+            request, 
+            [('email', 'email') , ('password', 'password'), ('g-recaptcha-response', 'captcha')]
+        )
+        if errors:
+            messages.error(request, errors)
+            return redirect('accounts:login')
+        elif not post_captcha(settings.CAPTCHA_SECRET_KEY, ip_of(request), data['g-recaptcha-response']):
+            return forbidden('')
+            
+        user = authenticate(request, username=data['email'], password=data['password'])
         if user is None:
-            messages.error(request, 'invalid username/password')
+            messages.error(request, 'invalid email/password')
             return redirect('accounts:login')
         _login(request, user)
         return redirect('home:index')
