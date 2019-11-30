@@ -8,6 +8,9 @@ urlpatterns = [
     path('match/', include(('match.urls', 'match'), namespace='match')),
     path('accounts/', include(('accounts.urls', 'accounts'), namespace='accounts')),
     path('api/', include(('api.urls', 'api'), namespace='api')),
-    path('files/', include(('files.urls', 'files'), namespace='files')),
     path('', include(('home.urls', 'home'), namespace='home')),
 ]
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.FILES_URL, document_root=settings.FILES_ROOT)
