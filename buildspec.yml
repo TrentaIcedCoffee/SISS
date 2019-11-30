@@ -20,3 +20,4 @@ artifacts:
     - 'scripts/**/*'
     - 'appspec.yml'
     - 'supervisord.conf'
+    - 'nginx-siss.conf'

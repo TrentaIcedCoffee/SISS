@@ -3,6 +3,8 @@ os: linux
 files:
  - source: /
    destination: /home/ubuntu/siss
+ - source: /nginx-siss.conf
+   destination: /etc/nginx/conf.d
 
 permissions:
   - object: /home/ubuntu/siss
