@@ -18,7 +18,7 @@ Install Python 3.6 (from ppa, works WITH python3.5); AWS codedeploy-agent
 
 .. code-block:: bash
 
-    ./scripts/init_env
+    ./init_env
 
 Set environment variables (``/home/ubuntu/.env`` is loaded)
 
