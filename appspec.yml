@@ -10,7 +10,7 @@ permissions:
   - object: /home/ubuntu/siss
     owner: root
     group: root
-    mode: 644
+    mode: 755
       
 hooks:
   AfterInstall:
